@@ -1,0 +1,62 @@
+{
+  "name": "@jlegrone/git-config",
+  "version": "0.0.0-semantically-released",
+  "author": "Jacob LeGrone",
+  "license": "MIT",
+  "description": "Shared git configuration",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlegrone/git-config"
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "commitmsg": "validate-commit-msg",
+    "remove-config": "sed -i.backup '/jlegrone.gitconfig/d' ~/.gitconfig",
+    "add-config": "git config --global --add include.path $PWD/src/jlegrone.gitconfig",
+    "postinstall": "npm run remove-config && npm run add-config",
+    "preuninstall": "npm run remove-config",
+    "semantic-release": "semantic-release pre && npm publish --access public && semantic-release post"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".cz-config.js"
+    },
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "refactor",
+        "test",
+        "chore",
+        "revert"
+      ],
+      "scope": {
+        "required": false,
+        "allowed": [
+          "aliases",
+          "repo",
+          "npm"
+        ],
+        "validate": true,
+        "multiple": true
+      },
+      "warnOnFail": true,
+      "maxSubjectLength": 100,
+      "subjectPattern": ".+",
+      "subjectPatternErrorMsg": "subject does not match subject pattern!",
+      "helpMessage": "\nTry running `yarn commit` for help.",
+      "autoFix": true
+    }
+  },
+  "devDependencies": {
+    "commitizen": "^2.9.6",
+    "cz-customizable": "^5.0.0",
+    "husky": "^0.14.3",
+    "validate-commit-msg": "^2.12.2",
+    "semantic-release": "^6.3.6"
+  }
+}

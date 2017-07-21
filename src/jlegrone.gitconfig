@@ -1,0 +1,45 @@
+[alias]
+  # List all available git aliases
+  # Usage: git aliases
+  aliases = "!git config -l | grep alias | cut -c 7-"
+
+  # View all branches containing a given commit hash
+  # Usage: git contains <hash>
+  contains = branch -a --contains
+
+  # Update your current branch from develop
+  # ** Rewrites history **
+  # Usage: git up
+  up = pull --rebase --autostash origin develop
+
+  # Start a feature branch based off of latest develop branch
+  # Usage: git start <name-of-feature>
+  start = "!sh -c \"git checkout develop && git up && git cb feature/$1\" -"
+
+  # Start a hotfix branch based off of latest master branch
+  # Usage: git hotfix <name-of-production-patch>
+  hotfix = "!sh -c \"git checkout master && git up && git cb hotfix/$1\" -"
+
+  # Create a "work in progress" commit with your current changes
+  # Usage: git wip
+  wip = !git add . && git commit -am "WIP"
+
+  # Undo your last commit
+  # Usage: git undo
+  undo = reset --soft HEAD~1
+
+  # Amend your last commit to include current changes
+  # ** Rewrites history **
+  # Usage: git amend
+  amend = "!git add . && git commit --amend --no-edit"
+
+  # Push the current branch to the remote "origin", and set it to track the upstream branch
+  # Usage: git publish
+  publish = "!git push -u origin $(git branch-name)"
+
+  # Delete merged branches
+  # Usage: git cleanup
+  cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+
+  # Get the current branch name (not so useful in itself, but used in other aliases)
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
