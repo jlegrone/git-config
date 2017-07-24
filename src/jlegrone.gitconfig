@@ -45,5 +45,9 @@
   # Usage: git cleanup
   cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
 
+  # Create a new branch
+  # Usage: git cb <branch-name>
+  cb = checkout -b
+
   # Get the current branch name (not so useful in itself, but used in other aliases)
   branch-name = "!git rev-parse --abbrev-ref HEAD"
