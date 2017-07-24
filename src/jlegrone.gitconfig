@@ -43,7 +43,7 @@
   fixup = "!sh -c \"git commit --fixup $1 --no-verify && git rebase $1^ --interactive --autosquash --autostash\" -"
 
   # Edit the message for a specified commit (may introduce conflicts during rebase)
-  # Note: functionaly similar to performing an interactive rebase and using `reword` option
+  # Note: functionally similar to performing an interactive rebase and using `reword` option
   # ** Rewrites history **
   # Usage: git reword <commit-hash>
   reword = "!sh -c \"git checkout $1 && git commit --amend && git rebase HEAD $(git branch-name) --autostash\" -"
