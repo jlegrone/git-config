@@ -48,6 +48,11 @@
   # Usage: git reword <commit-hash>
   reword = "!sh -c \"git checkout $1 && git commit --amend && git rebase HEAD $(git branch-name) --autostash\" -"
 
+  # Performs an interactive rebase starting from specified commit (may introduce conflicts during rebase)
+  # ** Rewrites history **
+  # Usage: git edit <commit-hash>
+  edit = "!sh -c \"git rebase $1^ --interactive --autostash\" -"
+
   # Push the current branch to the remote "origin", and set it to track the upstream branch
   # Usage: git publish
   publish = "!git push -u origin $(git branch-name)"
