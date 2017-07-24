@@ -3,6 +3,10 @@
   # Usage: git aliases
   aliases = "!git config -l | grep alias | cut -c 7-"
 
+  # List all remote branches, ordered by last commit date
+  # Usage: git branches
+  branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+
   # View all branches containing a given commit hash
   # Usage: git contains <hash>
   contains = branch -a --contains
@@ -14,11 +18,11 @@
 
   # Start a feature branch based off of latest develop branch
   # Usage: git start <name-of-feature>
-  start = "!sh -c \"git checkout develop && git up && git cb feature/$1\" -"
+  start = "!sh -c \"git checkout develop && git pull && git cb feature/$1\" -"
 
   # Start a hotfix branch based off of latest master branch
   # Usage: git hotfix <name-of-production-patch>
-  hotfix = "!sh -c \"git checkout master && git up && git cb hotfix/$1\" -"
+  hotfix = "!sh -c \"git checkout master && git pull && git cb hotfix/$1\" -"
 
   # Create a "work in progress" commit with your current changes
   # Usage: git wip
@@ -33,6 +37,22 @@
   # Usage: git amend
   amend = "!git add . && git commit --amend --no-edit"
 
+  # Add staged changes to a specified commit (may introduce conflicts during rebase)
+  # ** Rewrites history **
+  # Usage: git fixup <commit-hash>
+  fixup = "!sh -c \"git commit --fixup $1 --no-verify && git rebase $1^ --interactive --autosquash --autostash\" -"
+
+  # Edit the message for a specified commit (may introduce conflicts during rebase)
+  # Note: functionaly similar to performing an interactive rebase and using `reword` option
+  # ** Rewrites history **
+  # Usage: git reword <commit-hash>
+  reword = "!sh -c \"git checkout $1 && git commit --amend && git rebase HEAD $(git branch-name) --autostash\" -"
+
+  # Performs an interactive rebase starting from specified commit (may introduce conflicts during rebase)
+  # ** Rewrites history **
+  # Usage: git edit <commit-hash>
+  edit = "!sh -c \"git rebase $1^ --interactive --autostash\" -"
+
   # Push the current branch to the remote "origin", and set it to track the upstream branch
   # Usage: git publish
   publish = "!git push -u origin $(git branch-name)"
@@ -40,6 +60,10 @@
   # Delete merged branches
   # Usage: git cleanup
   cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+
+  # Create a new branch
+  # Usage: git cb <branch-name>
+  cb = checkout -b
 
   # Get the current branch name (not so useful in itself, but used in other aliases)
   branch-name = "!git rev-parse --abbrev-ref HEAD"
