@@ -37,6 +37,11 @@
   # Usage: git amend
   amend = "!git add . && git commit --amend --no-edit"
 
+  # Add staged changes to a specified commit (may introduce conflicts during rebase)
+  # ** Rewrites history **
+  # Usage: git fixup <commit-hash>
+  fixup = "!sh -c \"git commit --fixup $1 --no-verify && git rebase $1^ --interactive --autosquash --autostash\" -"
+
   # Push the current branch to the remote "origin", and set it to track the upstream branch
   # Usage: git publish
   publish = "!git push -u origin $(git branch-name)"
