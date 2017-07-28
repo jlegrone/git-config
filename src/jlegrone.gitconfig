@@ -57,6 +57,10 @@
   # Usage: git publish
   publish = "!git push -u origin $(git branch-name)"
 
+  # "Safer" force push -- see http://weiqingtoh.github.io/force-with-lease/
+  # Usage: git pushf
+  pushf = push --force-with-lease
+
   # Delete merged branches
   # Usage: git cleanup
   cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
