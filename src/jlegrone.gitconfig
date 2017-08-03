@@ -26,7 +26,7 @@
 
   # Create a "work in progress" commit with your current changes
   # Usage: git wip
-  wip = !git add . && git commit -am "WIP"
+  wip = !git add . && git commit -am "WIP" --no-verify
 
   # Undo your last commit
   # Usage: git undo
