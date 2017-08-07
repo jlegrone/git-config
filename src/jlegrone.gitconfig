@@ -35,7 +35,7 @@
   # Amend your last commit to include current changes
   # ** Rewrites history **
   # Usage: git amend
-  amend = "!git add . && git commit --amend --no-edit"
+  amend = "!git add . && git commit --amend --no-edit --no-verify"
 
   # Add staged changes to a specified commit (may introduce conflicts during rebase)
   # ** Rewrites history **
