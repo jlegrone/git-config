@@ -11,12 +11,9 @@
   "scripts": {
     "commit": "git-cz",
     "commitmsg": "validate-commit-msg",
-    "remove-config": "sed -i.backup '/jlegrone.gitconfig/d' ~/.gitconfig",
-    "add-config": "git config --global --add include.path $PWD/src/jlegrone.gitconfig",
-    "postinstall": "npm run remove-config && npm run add-config && npm run validate-git-version",
-    "preuninstall": "npm run remove-config",
-    "semantic-release": "semantic-release pre && npm publish --access public && semantic-release post",
-    "validate-git-version": "node scripts/validate-git-version"
+    "postinstall": "node scripts/bootstrap-config",
+    "preuninstall": "node scripts/remove-config",
+    "semantic-release": "semantic-release pre && npm publish --access public && semantic-release post"
   },
   "config": {
     "commitizen": {
