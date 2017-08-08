@@ -8,10 +8,15 @@
     "type": "git",
     "url": "https://github.com/jlegrone/git-config"
   },
+  "engines": {
+    "node": ">=4"
+  },
   "scripts": {
+    "build": "babel scripts --out-dir lib",
     "commit": "git-cz",
     "commitmsg": "validate-commit-msg",
     "postinstall": "node scripts/bootstrap-config",
+    "prepublish": "npm run build",
     "preuninstall": "node scripts/remove-config",
     "semantic-release": "semantic-release pre && npm publish --access public && semantic-release post"
   },
@@ -51,6 +56,8 @@
     }
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
     "commitizen": "^2.9.6",
     "cz-customizable": "^5.0.0",
     "husky": "^0.14.3",
