@@ -9,6 +9,7 @@
     "url": "https://github.com/jlegrone/git-config"
   },
   "engines": {
+    "git": "^2.60.0",
     "node": ">=4"
   },
   "scripts": {
