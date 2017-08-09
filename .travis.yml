@@ -6,7 +6,19 @@ cache:
 notifications:
   email: false
 node_js:
+  - '4'
+  - '6'
   - '8'
+before_install:
+  - npm install -g yarn
+install:
+  - yarn install --ignore-scripts
+before_script:
+  - yarn build
+script:
+  - yarn postinstall
+  - git aliases
+  - node lib/remove-config.test
 after_success:
   - yarn semantic-release
 branches:
