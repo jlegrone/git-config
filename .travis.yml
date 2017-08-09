@@ -20,6 +20,7 @@ script:
   - git aliases
   - node lib/remove-config.test
 after_success:
+  - yarn install --ignore-scripts
   - yarn semantic-release
 branches:
   except:
