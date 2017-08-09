@@ -1,3 +1,3 @@
-require('./remove-config')
-require('./add-config')
-require('./validate-git-version')
+import './remove-config'
+import './add-config'
+import './validate-git-version'

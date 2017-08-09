@@ -1,4 +1,4 @@
-const { exec } = require('child_process')
+import { exec } from 'child_process'
 
 exec(
   `git config --global --add include.path ${process.cwd()}/src/jlegrone.gitconfig`,
