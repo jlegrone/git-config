@@ -69,6 +69,6 @@
   },
   "dependencies": {
     "chalk": "^2.1.0",
-    "validate-git-version": "^1.0.1"
+    "validate-git-version": "^1.0.2"
   }
 }

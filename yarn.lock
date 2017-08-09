@@ -603,7 +603,7 @@ babel-register@^6.24.1:
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
 
-babel-runtime@^6.18.0:
+babel-runtime@^6.18.0, babel-runtime@^6.25.0:
   version "6.25.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.25.0.tgz#33b98eaa5d482bb01a8d1aa6b437ad2b01aec41c"
   dependencies:
@@ -2836,10 +2836,11 @@ validate-commit-msg@^2.12.2:
     findup "0.1.5"
     semver-regex "1.0.0"
 
-validate-git-version@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/validate-git-version/-/validate-git-version-1.0.1.tgz#ccb459edd0466446a0424517f3da0bcc4460524b"
+validate-git-version@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/validate-git-version/-/validate-git-version-1.0.2.tgz#e239a154aa39bc609888caa562f5ce135b5910a5"
   dependencies:
+    babel-runtime "^6.25.0"
     pify "^3.0.0"
     semver "^5.4.1"
 
