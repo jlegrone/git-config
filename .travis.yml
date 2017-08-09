@@ -16,7 +16,7 @@ install:
 before_script:
   - yarn build
 script:
-  - yarn postinstall
+  - yarn install --production
   - git aliases
   - node lib/remove-config.test
 after_success:
