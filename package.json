@@ -9,16 +9,17 @@
     "url": "https://github.com/jlegrone/git-config"
   },
   "engines": {
-    "git": "^2.60.0",
+    "git": "^2.6.0",
     "node": ">=4"
   },
   "scripts": {
+    "prebuild": "rimraf lib",
     "build": "babel scripts --out-dir lib",
     "commit": "git-cz",
     "commitmsg": "validate-commit-msg",
-    "postinstall": "node scripts/bootstrap-config",
+    "postinstall": "node lib/bootstrap-config",
     "prepublish": "npm run build",
-    "preuninstall": "node scripts/remove-config",
+    "preuninstall": "node lib/remove-config",
     "semantic-release": "semantic-release pre && npm publish --access public && semantic-release post"
   },
   "config": {
@@ -62,11 +63,12 @@
     "commitizen": "^2.9.6",
     "cz-customizable": "^5.0.0",
     "husky": "^0.14.3",
+    "rimraf": "^2.6.1",
     "semantic-release": "^6.3.6",
     "validate-commit-msg": "^2.12.2"
   },
   "dependencies": {
     "chalk": "^2.1.0",
-    "validate-git-version": "^1.0.0"
+    "validate-git-version": "^1.0.1"
   }
 }
