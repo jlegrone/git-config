@@ -142,7 +142,13 @@ $ git edit 27395436382cd897fd957635bd42cf78788f11b1
 
 #### `git publish`
 
-Push the current branch to the remote "origin", and set it to track the upstream branch.
+Push the current branch to the remote `origin`, and set it to track the upstream branch.
+
+<hr>
+
+#### `git unpublish`
+
+Remove the current branch from the remote `origin`.
 
 <hr>
 
