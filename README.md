@@ -54,9 +54,9 @@ $ git contains 27395436382cd897fd957635bd42cf78788f11b1
 
 Rebase the current branch onto `origin/develop`.
 
-> Caution: This command rewrites history.
+Rebases onto `origin/master` if no `develop` branch is present.
 
-> Requires a `develop` branch.
+> Caution: This command rewrites history.
 
 <hr>
 
@@ -64,7 +64,7 @@ Rebase the current branch onto `origin/develop`.
 
 Checkout a new branch based on `origin/develop`, prefixed with `feature`.
 
-> Requires a `develop` branch.
+Uses `origin/master` if no `develop` branch is present.
 
 ```bash
 $ git start user-service

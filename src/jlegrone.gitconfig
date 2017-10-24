@@ -14,11 +14,11 @@
   # Update your current branch from develop
   # ** Rewrites history **
   # Usage: git up
-  up = pull --rebase --autostash origin develop
+  up = "!git pull --rebase --autostash origin $(git develop-branch)"
 
   # Start a feature branch based off of latest develop branch
   # Usage: git start <name-of-feature>
-  start = "!sh -c \"git checkout develop && git pull && git cb feature/$1\" -"
+  start = "!sh -c \"git checkout $(git develop-branch) && git pull && git cb feature/$1\" -"
 
   # Start a hotfix branch based off of latest master branch
   # Usage: git hotfix <name-of-production-patch>
@@ -73,5 +73,8 @@
   # Usage: git cb <branch-name>
   cb = checkout -b
 
-  # Get the current branch name (not so useful in itself, but used in other aliases)
+  # Get the current branch name (used in other aliases)
   branch-name = "!git rev-parse --abbrev-ref HEAD"
+
+  # Get the develop branch (used in other aliases)
+  develop-branch = "!(git show-ref --quiet refs/heads/develop && echo develop) || echo master"
