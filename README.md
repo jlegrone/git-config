@@ -43,6 +43,9 @@ List all local and remote branches containing a given commit hash.
 
 ```bash
 $ git contains 27395436382cd897fd957635bd42cf78788f11b1
+* feature/add-docs
+  master
+  remotes/origin/master
 ```
 
 <hr>
