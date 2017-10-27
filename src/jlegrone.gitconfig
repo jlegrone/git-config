@@ -73,6 +73,10 @@
   # Usage: git cb <branch-name>
   cb = checkout -b
 
+  # Show an abridged git log output, one line per commit
+  # Usage: git l
+  l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+
   # Get the current branch name (used in other aliases)
   branch-name = "!git rev-parse --abbrev-ref HEAD"
 

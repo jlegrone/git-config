@@ -183,3 +183,21 @@ Checkout a new branch. Shorthand for `git checkout -b <branch-name>`.
 $ git cb test/my-proof-of-concept
 # now on branch test/my-proof-of-concept
 ```
+
+<hr>
+
+#### `git l`
+
+Show an abridged `git log` output, with one line per commit.
+
+> Accepts all options that can be passed to [git-log](https://git-scm.com/docs/git-log).
+
+```bash
+$ git l
+6b1768a 2017-08-09 (tag: v1.3.3) Merge pull request #9 from jlegrone/feature/re-enable-release [GitHub]
+1b0b519 2017-08-09 chore(travis): install dev dependencies again in post_success hook [Jacob LeGrone]
+4b5cb73 2017-08-09 Merge pull request #8 from jlegrone/feature/fix-missing-dep [GitHub]
+e5695bc 2017-08-09 fix(install): update to working validate-git-version [Jacob LeGrone]
+3fab789 2017-08-09 test(travis): install production dependencies only [Jacob LeGrone]
+...
+```

@@ -59,6 +59,7 @@ const scopes = [
   'pushf',
   'cleanup',
   'cb',
+  'log',
   'branch-name',
   'develop-branch'
 ].map(name => ({ name }));
