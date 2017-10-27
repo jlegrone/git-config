@@ -21,7 +21,13 @@ $ npm uninstall --global @jlegrone/git-config
 
 # Usage
 
-To view the source for each alias, see [src/jlegrone.gitconfig](src/jlegrone.gitconfig).
+To view the source for an alias, type
+
+```bash
+$ git help <alias>
+```
+
+## Available Aliases
 
 <hr>
 
