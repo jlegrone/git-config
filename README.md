@@ -21,9 +21,13 @@ $ npm uninstall --global @jlegrone/git-config
 
 # Usage
 
-To view the source for each alias, see [src/jlegrone.gitconfig](src/jlegrone.gitconfig).
+To view the source for an alias, type
 
-<hr>
+```bash
+$ git help <alias>
+```
+
+## Available Aliases
 
 #### `git aliases`
 
@@ -43,6 +47,9 @@ List all local and remote branches containing a given commit hash.
 
 ```bash
 $ git contains 27395436382cd897fd957635bd42cf78788f11b1
+* feature/add-docs
+  master
+  remotes/origin/master
 ```
 
 <hr>
@@ -51,9 +58,9 @@ $ git contains 27395436382cd897fd957635bd42cf78788f11b1
 
 Rebase the current branch onto `origin/develop`.
 
-> Caution: This command rewrites history.
+Rebases onto `origin/master` if no `develop` branch is present.
 
-> Requires a `develop` branch.
+> Caution: This command rewrites history.
 
 <hr>
 
@@ -61,7 +68,7 @@ Rebase the current branch onto `origin/develop`.
 
 Checkout a new branch based on `origin/develop`, prefixed with `feature`.
 
-> Requires a `develop` branch.
+Uses `origin/master` if no `develop` branch is present.
 
 ```bash
 $ git start user-service
@@ -132,6 +139,8 @@ $ git reword 27395436382cd897fd957635bd42cf78788f11b1
 
 Perform an interactive rebase starting from the specified commit.
 
+> Accepts all options that can be passed to [git-rebase](https://git-scm.com/docs/git-rebase).
+
 > Caution: This command rewrites history, and may introduce conflicts during rebase.
 
 ```bash
@@ -156,7 +165,9 @@ Remove the current branch from the remote `origin`.
 
 Force push to the upstream branch, but receive a warning if new commits were added to the remote since your last checkout.
 
-For more information, see http://weiqingtoh.github.io/force-with-lease/
+For more information, see http://weiqingtoh.github.io/force-with-lease/.
+
+> Accepts all options that can be passed to [git-push](https://git-scm.com/docs/git-push).
 
 <hr>
 
@@ -170,7 +181,42 @@ Delete local branches that have been fully merged into `master` or `develop`.
 
 Checkout a new branch. Shorthand for `git checkout -b <branch-name>`.
 
+> Accepts all options that can be passed to [git-checkout](https://git-scm.com/docs/git-checkout).
+
 ```bash
 $ git cb test/my-proof-of-concept
 # now on branch test/my-proof-of-concept
+```
+
+<hr>
+
+#### `git l`
+
+Show an abridged `git log` output, with one line per commit.
+
+> Accepts all options that can be passed to [git-log](https://git-scm.com/docs/git-log).
+
+```bash
+$ git l
+6b1768a 2017-08-09 (tag: v1.3.3) Merge pull request #9 from jlegrone/feature/re-enable-release [GitHub]
+1b0b519 2017-08-09 chore(travis): install dev dependencies again in post_success hook [Jacob LeGrone]
+4b5cb73 2017-08-09 Merge pull request #8 from jlegrone/feature/fix-missing-dep [GitHub]
+e5695bc 2017-08-09 fix(install): update to working validate-git-version [Jacob LeGrone]
+3fab789 2017-08-09 test(travis): install production dependencies only [Jacob LeGrone]
+...
+```
+
+<hr>
+
+#### `git s`
+
+Show an abridged `git status` output which only includes files changed.
+
+> Accepts all options that can be passed to [git-status](https://git-scm.com/docs/git-status).
+
+```bash
+$ git s
+M  README.md
+ M commitizen.config.js
+ M src/jlegrone.gitconfig
 ```
