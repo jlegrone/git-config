@@ -29,8 +29,6 @@ $ git help <alias>
 
 ## Available Aliases
 
-<hr>
-
 #### `git aliases`
 
 List all available git aliases.
@@ -141,6 +139,8 @@ $ git reword 27395436382cd897fd957635bd42cf78788f11b1
 
 Perform an interactive rebase starting from the specified commit.
 
+> Accepts all options that can be passed to [git-rebase](https://git-scm.com/docs/git-rebase).
+
 > Caution: This command rewrites history, and may introduce conflicts during rebase.
 
 ```bash
@@ -165,7 +165,9 @@ Remove the current branch from the remote `origin`.
 
 Force push to the upstream branch, but receive a warning if new commits were added to the remote since your last checkout.
 
-For more information, see http://weiqingtoh.github.io/force-with-lease/
+For more information, see http://weiqingtoh.github.io/force-with-lease/.
+
+> Accepts all options that can be passed to [git-push](https://git-scm.com/docs/git-push).
 
 <hr>
 
@@ -178,6 +180,8 @@ Delete local branches that have been fully merged into `master` or `develop`.
 #### `git cb <branch-name>`
 
 Checkout a new branch. Shorthand for `git checkout -b <branch-name>`.
+
+> Accepts all options that can be passed to [git-checkout](https://git-scm.com/docs/git-checkout).
 
 ```bash
 $ git cb test/my-proof-of-concept
