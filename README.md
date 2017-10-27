@@ -201,3 +201,18 @@ e5695bc 2017-08-09 fix(install): update to working validate-git-version [Jacob L
 3fab789 2017-08-09 test(travis): install production dependencies only [Jacob LeGrone]
 ...
 ```
+
+<hr>
+
+#### `git s`
+
+Show an abridged `git status` output which only includes files changed.
+
+> Accepts all options that can be passed to [git-status](https://git-scm.com/docs/git-status).
+
+```bash
+$ git s
+M  README.md
+ M commitizen.config.js
+ M src/jlegrone.gitconfig
+```

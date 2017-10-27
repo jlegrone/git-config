@@ -60,6 +60,7 @@ const scopes = [
   'cleanup',
   'cb',
   'log',
+  'status',
   'branch-name',
   'develop-branch'
 ].map(name => ({ name }));
