@@ -19,6 +19,14 @@ $ npm install --global @jlegrone/git-config
 $ npm uninstall --global @jlegrone/git-config
 ```
 
+### Non-NPM Install
+
+```
+$ git clone https://github.com/jlegrone/git-config.git
+$ cd git-config
+$ git config --global --add include.path "$PWD/src/jlegrone.gitconfig"
+```
+
 # Usage
 
 To view the source for an alias, type
