@@ -18,6 +18,7 @@ script:
   - yarn commitlint-travis
   - yarn install --production
   - git aliases
+  - GIT_REMOTE=$(git upstream-or-origin) && [ "$GIT_REMOTE" = "origin" ]
   - node lib/remove-config.test
 after_success:
   - yarn install --ignore-scripts
