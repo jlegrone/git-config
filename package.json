@@ -40,7 +40,7 @@
     "cz-customizable": "^5.2.0",
     "husky": "^1.0.0",
     "rimraf": "^2.6.1",
-    "semantic-release": "^15.6.0"
+    "semantic-release": "^15.13.16"
   },
   "dependencies": {
     "chalk": "^2.1.0"
