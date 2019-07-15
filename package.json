@@ -33,7 +33,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-angular": "^8.1.0",
-    "@commitlint/travis-cli": "^7.0.0",
+    "@commitlint/travis-cli": "^8.1.0",
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "commitizen": "^3.0.0",
