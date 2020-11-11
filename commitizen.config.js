@@ -63,7 +63,8 @@ const scopes = [
   'status',
   'branch-name',
   'develop-branch',
-  'upstream-or-origin'
+  'upstream-or-origin',
+  'main-branch'
 ].map(name => ({ name }));
 
 module.exports = {
