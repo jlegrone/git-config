@@ -22,7 +22,7 @@
 
   # Start a hotfix branch based off of latest master branch
   # Usage: git hotfix <name-of-production-patch>
-  hotfix = "!sh -c \"git checkout master && git pull && git cb hotfix/$1\" -"
+  hotfix = "!sh -c \"git checkout $(git main-branch) && git pull && git cb hotfix/$1\" -"
 
   # Create a "work in progress" commit with your current changes
   # Usage: git wip
@@ -67,7 +67,7 @@
 
   # Delete merged branches
   # Usage: git cleanup
-  cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+  cleanup = "!git branch --merged | grep  -v '\\*\\|main\\|master\\|develop' | xargs -n 1 git branch -d"
 
   # Create a new branch
   # Usage: git cb <branch-name>
@@ -85,7 +85,10 @@
   branch-name = "!git rev-parse --abbrev-ref HEAD"
 
   # Get the develop branch (used in other aliases)
-  develop-branch = "!(git show-ref --quiet refs/heads/develop && echo develop) || echo master"
+  develop-branch = "!(git show-ref --quiet refs/heads/develop && echo develop) || echo $(git main-branch)"
 
   # Get remote name (prefer upstream over origin)
   upstream-or-origin = "!(git remote | grep upstream) || echo origin"
+
+  # Get main branch name (prefer main over master)
+  main-branch="!(git show-ref --quiet refs/heads/main && echo main) || echo master"
