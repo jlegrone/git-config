@@ -28,9 +28,9 @@
   # Usage: git wip
   wip = !git add . && git commit -am "WIP" --no-verify
 
-  # Undo your last commit
-  # Usage: git undo
-  undo = reset --soft HEAD~1
+  # Undo the last commit
+  # Usage: git undo | git undo --no-user-check
+  undo = "!sh -c \"([ "$(git same-committer)" == 1 ] && git reset --soft HEAD~1 || ([ -z "$1" ] && echo "Previous commit made by $(git previous-committer). If you would like to revert to that commit run 'git undo --no-user-check'" || ([ "$1" == "--no-user-check" ] && echo "undo" || echo "Unrecognized parameter")))\" -"
 
   # Amend your last commit to include current changes
   # ** Rewrites history **
@@ -89,3 +89,12 @@
 
   # Get remote name (prefer upstream over origin)
   upstream-or-origin = "!(git remote | grep upstream) || echo origin"
+
+  # Get name of previous committer
+  previous-committer = log -1 --pretty=format:'%an'
+
+  # Get name of current committer
+  current-committer = config --get user.name
+
+  # Compare previous-committer to current-committer
+  same-committer = "!sh -c \"[[ '"$(git previous-committer)"' == '"$(git current-committer)"' ]] && echo 1 || echo 0\" -"

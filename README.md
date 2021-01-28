@@ -104,9 +104,11 @@ Create a "work in progress" commit with all (staged and unstaged) changes.
 
 <hr>
 
-#### `git undo`
+#### `git undo [--no-user-check]`
 
 Undo the latest commit. The contents of that commit will remain as staged changes.
+
+> Note: The `--no-user-check` flag is required if the previous author is not the current user.
 
 <hr>
 
